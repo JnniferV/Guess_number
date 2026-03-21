@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<%- include("partials/head") %>
+
+<body>
+<%- include("partials/header") %>
+
+<main class="page-content">
+  <% if (user) { %>
+    <div class="play-section">
+      <i class="bi bi-joystick play-icon"></i>
+      <a href="/game" class="btn-play-big">JOUER</a>
+    </div>
+  <% } else { %>
+    <div class="hero-welcome">
+      <i class="bi bi-joystick hero-icon"></i>
+      <h1 class="hero-title">DEVINE</h1>
+      <p class="hero-subtitle">Bienvenue sur l'application pour deviner un nombre entre 1 et 100</p>
+    </div>
+  <% } %>
+</main>
+
+<%- include("partials/footer") %>
+
+</body>
+</html>

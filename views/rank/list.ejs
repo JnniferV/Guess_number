@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<%- include("../partials/head") %> <!-- Inclusion de head -->
+
+<body>
+<%- include("../partials/header") %>
+<!-- Inclusion de l'entête -->
+
+<section class="page-content d-flex flex-column justify-center align-items-center py-4">
+    <h1 class="text-primary">LE CLASSEMENT</h1>
+
+    <!-- liste des utilisateurs -->
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Utilisateur</th>
+            <th scope="col">Tentatives</th>
+            <th scope="col">Temps</th>
+            <th scope="col" colspan="2">Nombre à trouver</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% games.forEach((game)=> { %>
+            <tr>
+                <td><%= game.user.email %></td>
+                <td><%= game.attempts %></td>
+                <td>
+                    <% if (game.inProgress) { %>
+                        <i class="bi bi-clock-fill"></i>
+                    <% } else{ %> <%= Math.round(game.time / 1000) %> sec.
+                    <% } %>
+                </td>
+                <td><%= (game.inProgress) ? '?' : game.numberToFind %></td>
+            </tr>
+
+        <% }); %>
+        </tbody>
+    </table>
+</section>
+
+<%- include("../partials/footer") %>
+<!-- Inclusion du pied de page -->
+
+</body>
+
+</html>

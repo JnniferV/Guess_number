@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<%- include("../partials/head") %> <!-- Inclusion de head -->
+
+<body>
+<%- include("../partials/header") %>
+<main class="page-content container py-4">
+  <h1 class="text-primary">CONNEXION</h1>
+  <form method="post" action="/users/login">
+    <div class="mb-3">
+        <label for="email" class="form-label">email</label>
+        <input
+                type="text"
+                id="email"
+                name="email"
+                class="form-control <%= errors?.email ? 'is-invalid' : '' %>"
+                value="<%= email %>"
+        />
+        <div class="invalid-feedback">
+            <% if (errors?.email ) { %> <%= errors.email.msg %>
+            <% } %>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+                type="password"
+                id="password"
+                name="password"
+                class="form-control <%= errors?.password ? 'is-invalid' : '' %>"
+        />
+        <div class="invalid-feedback">
+            <% if (errors?.password) { %> <%= errors.password.msg %>
+            <% } %>
+        </div>
+    </div>
+
+    <% if (errors?.connexion) { %>
+        <div class="p-3 mb-2 bg-danger text-white"><%= errors.connexion %></div>
+    <% } %>
+    <div class="mb-3 form-group row text-center">
+        <button type="submit" class="btn btn-primary">Se connecter</button>
+        <span>----</span>
+        <a href="/users/create" class="btn btn-success text-center"
+        >Créer un compte</a
+        >
+    </div>
+  </form>
+</main>
+<%- include("../partials/footer") %>
+
+</body>
+</html>

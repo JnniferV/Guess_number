@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<%- include("partials/head") %> <!-- Inclusion de head -->
+
+<body>
+<%- include("partials/header") %> <!-- Inclusion de l'entête -->
+
+<section class="page-content d-flex flex-column justify-center align-items-center py-4">
+    <% if (user) { %>
+        <!-- Formulaire -->
+        <p class="text-secondary">Découvrez en un minimum de tour le nombre mystère !</p>
+
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title text-center"><i class="bi bi-question-diamond-fill fs-1"></i></h5>
+                <h6 class="card-subtitle mb-2 text-body-secondary">Qui suis-je</h6>
+                <p class="card-text">Quel nombre entre 1 et 100 se cache derrière le "?"</p>
+
+                <% if (successMessage) { %>
+                    <form class="d-flex flex-column justify-center align-items-center" method="post"
+                          action="/game/replay">
+                        <input class="btn btn-success my-2" type="submit" value="Rejouer">
+                    </form>
+                <% }else{ %>
+                    <form class="d-flex flex-column justify-center align-items-center" method="post" action="/game">
+                        <input min="1" max="100" class="form-control" type="number" id="choice" name="choice"
+                               placeholder="?">
+                        <input class="btn btn-success my-2" type="submit" value="J'ai trouvé !">
+                    </form>
+                <% } %>
+            </div>
+        </div>
+    <% } %>
+
+    <!-- Utilisation de res.locals.successMessage et  res.locals.errorMessage -->
+    <% if (successMessage) { %>
+        <div class="alert alert-success">
+            <%= successMessage %>
+        </div>
+    <% } %>
+
+    <% if (errorMessage) { %>
+        <div class="alert alert-danger">
+            <%= errorMessage %>
+        </div>
+    <% } %>
+
+</section>
+
+<%- include("partials/footer") %> <!-- Inclusion du pied de page -->
+
+</body>
+
+</html>

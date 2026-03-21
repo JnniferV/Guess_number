@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<%- include("../partials/head") %> <!-- Inclusion de head -->
+
+<body>
+<%- include("../partials/header") %>
+<!-- Inclusion de l'entête -->
+
+
+<section class="page-content d-flex flex-column container py-4">
+    <h1 class="text-primary text-center">
+        CRÉER UN COMPTE
+    </h1>
+
+    <form method="post" action="/users/create">
+        <div class="mb-3 form-group row">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="text" id="email" name="email"
+                       class="form-control <%= errors?.email ? 'is-invalid' : '' %>"
+                       value="<%= email %>"/>
+                <div class="invalid-feedback">
+                    <% if (errors?.email) { %> <%= errors.email.msg %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 form-group row">
+            <label for="password" class="col-sm-2 col-form-label">Mot de passe</label>
+            <div class="col-sm-10">
+                <input type="password" id="password" name="password"
+                       class="form-control <%= errors?.password ? 'is-invalid' : '' %>"/>
+                <div class="invalid-feedback">
+                    <% if (errors?.password) { %> <%= typeof errors.password === 'object' ? errors.password.msg : errors.password %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3 form-group row">
+            <label for="confirmPassword" class="col-sm-2 col-form-label">Confirmer le mot de passe</label>
+            <div class="col-sm-10">
+                <input type="password" id="confirmPassword" name="confirmPassword"
+                       class="form-control <%= errors?.confirmPassword ? 'is-invalid' : '' %>"/>
+                <div class="invalid-feedback">
+                    <% if (errors?.confirmPassword) { %> <%= typeof errors.confirmPassword === 'object' ? errors.confirmPassword.msg : errors.confirmPassword %>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Créer un compte</button>
+        </div>
+    </form>
+</section>
+
+
+<%- include("../partials/footer") %>
+<!-- Inclusion du pied de page -->
+
+</body>
+
+</html>

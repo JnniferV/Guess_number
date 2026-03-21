@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg navbar-dark app-navbar">
+    <div class="container">
+        <a class="navbar-brand" href="/">DEVINE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                
+                   <% if (user) { %> 
+                    <li class="nav-item"><a class="nav-link active" href="/">Accueil</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="/game">Jouer</a></li> 
+                    <li class="nav-item"><a class="nav-link" href="/rank">Classement</a></li>
+                    <% if (user.role && user.role === 'admin' ){ %> 
+                        <li class="nav-item"><a class="nav-link" href="/users">Utilisateurs</a></li> 
+                        <% } %> 
+                        <li class="nav-item"><a class="nav-link" href="/users/logout">Déconnexion <i class="bi bi-box-arrow-right"></i></a></li> 
+                        <% } else { %> 
+                            <li class="nav-item"><a class="nav-link" href="/users/login">Connexion <i class="bi bi-person-circle"></i></a></li> 
+                        <% } %>
+            </ul>
+        </div>
+    </div>
+</nav>

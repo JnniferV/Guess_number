@@ -1,0 +1,29 @@
+{
+  "name": "guess-app",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "argon2": "^0.44.0",
+    "bootstrap": "^5.3.8",
+    "bootstrap-icons": "^1.13.1",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^17.3.1",
+    "ejs": "^3.0.2",
+    "express": "^4.22.1",
+    "express-session": "^1.19.0",
+    "express-validator": "^7.3.1",
+    "http-errors": "~1.6.3",
+    "mongodb": "^7.1.0",
+    "mongoose": "^9.2.1",
+    "morgan": "^1.10.1",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.0.2"
+  }
+}
