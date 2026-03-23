@@ -40,8 +40,8 @@ Application web de jeu de devinette développée avec **Node.js**, **Express** e
 
 ```bash
 # 1. Cloner le dépôt
-git clone https://github.com/<ton-pseudo>/devine.git
-cd devine
+git clone https://github.com/JnniferV/Guess_number.git
+cd Guess_number
 
 # 2. Installer les dépendances
 npm install
@@ -51,6 +51,21 @@ npm start
 ```
 
 L'app est accessible sur **http://localhost:3000**
+
+### Fichier `.env` (important)
+
+Avant de lancer le projet, crée un fichier `.env` à la racine du projet et ajoute :
+
+```env
+MONGODB_URI=mongodb://localhost:27017/express_brain
+SESSION_SECRET=remplace_par_un_secret_long_et_unique
+```
+
+Exemple simple de secret :
+
+```env
+SESSION_SECRET=devine_secret_2026
+```
 
 ---
 
@@ -81,4 +96,4 @@ guess-app/
 
 ## 👤 Auteur
 
-**JnniferV** — © Tous droits réservés
+**JnniferV**
